@@ -1,0 +1,8 @@
+local thing "[[
+-- script here
+]]
+
+
+local encoded = thing:gsub(".", function(bb) return "\\" .. bb:byte() end) or thing .. "\""
+print(encoded)
+print'loadstring("urstuff")()'
