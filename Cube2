@@ -1,0 +1,941 @@
+-- Gui to Lua
+
+-- Version: 3.2
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+
+local Gradient = Instance.new("Frame")
+
+local UIGradient = Instance.new("UIGradient")
+
+local UICorner = Instance.new("UICorner")
+
+local Button = Instance.new("TextButton")
+
+local Shadow = Instance.new("Frame")
+
+local TextLabel = Instance.new("TextLabel")
+
+local Button_2 = Instance.new("TextButton")
+
+local Shadow_2 = Instance.new("Frame")
+
+local TextLabel_2 = Instance.new("TextLabel")
+
+local Button_3 = Instance.new("TextButton")
+
+local Shadow_3 = Instance.new("Frame")
+
+local TextLabel_3 = Instance.new("TextLabel")
+
+local Button_4 = Instance.new("TextButton")
+
+local Shadow_4 = Instance.new("Frame")
+
+local TextLabel_4 = Instance.new("TextLabel")
+
+local Button_5 = Instance.new("TextButton")
+
+local Shadow_5 = Instance.new("Frame")
+
+local TextLabel_5 = Instance.new("TextLabel")
+
+local Button_6 = Instance.new("TextButton")
+
+local Shadow_6 = Instance.new("Frame")
+
+local TextLabel_6 = Instance.new("TextLabel")
+
+local Button_7 = Instance.new("TextButton")
+
+local Shadow_7 = Instance.new("Frame")
+
+local TextLabel_7 = Instance.new("TextLabel")
+
+local Button_8 = Instance.new("TextButton")
+
+local Shadow_8 = Instance.new("Frame")
+
+local TextLabel_8 = Instance.new("TextLabel")
+
+local Button_9 = Instance.new("TextButton")
+
+local Shadow_9 = Instance.new("Frame")
+
+local TextLabel_9 = Instance.new("TextLabel")
+
+local TextLabel_10 = Instance.new("TextLabel")
+
+--Properties:
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+ScreenGui.ResetOnSpawn = false
+
+Gradient.Name = "Gradient"
+
+Gradient.Parent = ScreenGui
+
+Gradient.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+
+Gradient.BorderColor3 = Color3.fromRGB(27, 42, 53)
+
+Gradient.BorderSizePixel = 0
+
+Gradient.Position = UDim2.new(0.540299892, 0, 0.116302185, 0)
+
+Gradient.Size = UDim2.new(0, 360, 0, 200)
+
+Gradient.Active = true
+
+Gradient.Draggable = true
+
+UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(203, 215, 253)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(225, 226, 227))}
+
+UIGradient.Parent = Gradient
+
+UICorner.CornerRadius = UDim.new(0, 4)
+
+UICorner.Parent = Gradient
+
+Button.Name = "Button"
+
+Button.Parent = Gradient
+
+Button.BackgroundColor3 = Color3.fromRGB(48, 48, 48)
+
+Button.BorderSizePixel = 0
+
+Button.Position = UDim2.new(0.0444444455, 0, 0.185000002, 0)
+
+Button.Size = UDim2.new(0, 98, 0, 35)
+
+Button.ZIndex = 2
+
+Button.Font = Enum.Font.GothamSemibold
+
+Button.Text = ""
+
+Button.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+Button.TextScaled = true
+
+Button.TextSize = 14.000
+
+Button.TextWrapped = true
+
+Button.MouseButton1Down:connect(function()
+
+    local Player = game:GetService("Players").LocalPlayer
+
+local Connections = {}
+
+local function MakeConnection(Mob)
+
+   if not Connections[Mob] and Mob:FindFirstChildOfClass("Humanoid") then
+
+       local z = game.Players:GetPlayers()
+
+       for i,v in pairs(z) do
+
+           if Mob == v.Character then
+
+               return
+
+           end
+
+       end
+
+       Connections[Mob] = Mob.Humanoid:GetPropertyChangedSignal("Health"):Connect(function()
+
+           for i = 1, 20 do
+
+               Mob.Humanoid.Health = 0
+
+           end
+
+       end)
+
+   end
+
+end
+
+for i,v in pairs(workspace:GetDescendants()) do
+
+   local Human = v:FindFirstChild("Humanoid")
+
+   if Human then
+
+       MakeConnection(v)
+
+   end
+
+end
+
+workspace.DescendantAdded:Connect(function(Child)
+
+   local Human = Child:FindFirstChild("Humanoid") or Child:WaitForChild("Humanoid", 10)
+
+   if Human then
+
+       MakeConnection(Child)
+
+   end
+
+end)
+
+end)
+
+Shadow.Name = "Shadow"
+
+Shadow.Parent = Button
+
+Shadow.BackgroundColor3 = Color3.fromRGB(22, 22, 22)
+
+Shadow.BorderSizePixel = 0
+
+Shadow.Size = UDim2.new(1, 0, 1, 4)
+
+TextLabel.Parent = Button
+
+TextLabel.AnchorPoint = Vector2.new(0.5, 0.5)
+
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+
+TextLabel.BackgroundTransparency = 1.000
+
+TextLabel.BorderColor3 = Color3.fromRGB(27, 42, 53)
+
+TextLabel.BorderSizePixel = 0
+
+TextLabel.Position = UDim2.new(0.5, 0, 0.5, 0)
+
+TextLabel.Size = UDim2.new(1, -20, 1, -20)
+
+TextLabel.ZIndex = 2
+
+TextLabel.Font = Enum.Font.GothamSemibold
+
+TextLabel.Text = "insta kill"
+
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+TextLabel.TextScaled = true
+
+TextLabel.TextSize = 14.000
+
+TextLabel.TextWrapped = true
+
+Button_2.Name = "Button"
+
+Button_2.Parent = Gradient
+
+Button_2.BackgroundColor3 = Color3.fromRGB(48, 48, 48)
+
+Button_2.BorderSizePixel = 0
+
+Button_2.Position = UDim2.new(0.0444444455, 0, 0.430000007, 0)
+
+Button_2.Size = UDim2.new(0, 98, 0, 35)
+
+Button_2.ZIndex = 2
+
+Button_2.Font = Enum.Font.GothamSemibold
+
+Button_2.Text = ""
+
+Button_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+Button_2.TextScaled = true
+
+Button_2.TextSize = 14.000
+
+Button_2.TextWrapped = true
+
+Button_2.MouseButton1Down:connect(function()
+
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-8.74802208, -2.47350049, 547.1698, -0.979027748, 4.13889154e-08, 0.203726992, 4.00494642e-08, 1, -1.06975389e-08, -0.203726992, -2.31403008e-09, -0.979027748)
+
+end)
+
+Shadow_2.Name = "Shadow"
+
+Shadow_2.Parent = Button_2
+
+Shadow_2.BackgroundColor3 = Color3.fromRGB(22, 22, 22)
+
+Shadow_2.BorderSizePixel = 0
+
+Shadow_2.Size = UDim2.new(1, 0, 1, 4)
+
+TextLabel_2.Parent = Button_2
+
+TextLabel_2.AnchorPoint = Vector2.new(0.5, 0.5)
+
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+
+TextLabel_2.BackgroundTransparency = 1.000
+
+TextLabel_2.BorderColor3 = Color3.fromRGB(27, 42, 53)
+
+TextLabel_2.BorderSizePixel = 0
+
+TextLabel_2.Position = UDim2.new(0.5, 0, 0.5, 0)
+
+TextLabel_2.Size = UDim2.new(1, -20, 1, -20)
+
+TextLabel_2.ZIndex = 2
+
+TextLabel_2.Font = Enum.Font.GothamSemibold
+
+TextLabel_2.Text = "grasslands"
+
+TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+TextLabel_2.TextScaled = true
+
+TextLabel_2.TextSize = 14.000
+
+TextLabel_2.TextWrapped = true
+
+Button_3.Name = "Button"
+
+Button_3.Parent = Gradient
+
+Button_3.BackgroundColor3 = Color3.fromRGB(48, 48, 48)
+
+Button_3.BorderSizePixel = 0
+
+Button_3.Position = UDim2.new(0.36388889, 0, 0.430000007, 0)
+
+Button_3.Size = UDim2.new(0, 98, 0, 35)
+
+Button_3.ZIndex = 2
+
+Button_3.Font = Enum.Font.GothamSemibold
+
+Button_3.Text = ""
+
+Button_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+Button_3.TextScaled = true
+
+Button_3.TextSize = 14.000
+
+Button_3.TextWrapped = true
+
+Button_3.MouseButton1Down:connect(function()
+
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-9.73967075, -2.47450042, 1243.05615, -0.90631187, 6.68178259e-08, 0.422609508, 5.51747803e-08, 1, -3.97820408e-08, -0.422609508, -1.27375506e-08, -0.90631187)
+
+end)
+
+Shadow_3.Name = "Shadow"
+
+Shadow_3.Parent = Button_3
+
+Shadow_3.BackgroundColor3 = Color3.fromRGB(22, 22, 22)
+
+Shadow_3.BorderSizePixel = 0
+
+Shadow_3.Size = UDim2.new(1, 0, 1, 4)
+
+TextLabel_3.Parent = Button_3
+
+TextLabel_3.AnchorPoint = Vector2.new(0.5, 0.5)
+
+TextLabel_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+
+TextLabel_3.BackgroundTransparency = 1.000
+
+TextLabel_3.BorderColor3 = Color3.fromRGB(27, 42, 53)
+
+TextLabel_3.BorderSizePixel = 0
+
+TextLabel_3.Position = UDim2.new(0.5, 0, 0.5, 0)
+
+TextLabel_3.Size = UDim2.new(1, -20, 1, -20)
+
+TextLabel_3.ZIndex = 2
+
+TextLabel_3.Font = Enum.Font.GothamSemibold
+
+TextLabel_3.Text = "aquaelemental"
+
+TextLabel_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+TextLabel_3.TextScaled = true
+
+TextLabel_3.TextSize = 14.000
+
+TextLabel_3.TextWrapped = true
+
+Button_4.Name = "Button"
+
+Button_4.Parent = Gradient
+
+Button_4.BackgroundColor3 = Color3.fromRGB(48, 48, 48)
+
+Button_4.BorderSizePixel = 0
+
+Button_4.Position = UDim2.new(0.36388889, 0, 0.185000017, 0)
+
+Button_4.Size = UDim2.new(0, 98, 0, 35)
+
+Button_4.ZIndex = 2
+
+Button_4.Font = Enum.Font.GothamSemibold
+
+Button_4.Text = ""
+
+Button_4.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+Button_4.TextScaled = true
+
+Button_4.TextSize = 14.000
+
+Button_4.TextWrapped = true
+
+Button_4.MouseButton1Down:connect(function()
+
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-12.5415478, -2.47450089, 2045.93713, -0.821308792, 7.18995494e-08, 0.570483923, 3.76163314e-08, 1, -7.18774444e-08, -0.570483923, -3.75740612e-08, -0.821308792)
+
+end)
+
+Shadow_4.Name = "Shadow"
+
+Shadow_4.Parent = Button_4
+
+Shadow_4.BackgroundColor3 = Color3.fromRGB(22, 22, 22)
+
+Shadow_4.BorderSizePixel = 0
+
+Shadow_4.Size = UDim2.new(1, 0, 1, 4)
+
+TextLabel_4.Parent = Button_4
+
+TextLabel_4.AnchorPoint = Vector2.new(0.5, 0.5)
+
+TextLabel_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+
+TextLabel_4.BackgroundTransparency = 1.000
+
+TextLabel_4.BorderColor3 = Color3.fromRGB(27, 42, 53)
+
+TextLabel_4.BorderSizePixel = 0
+
+TextLabel_4.Position = UDim2.new(0.5, 0, 0.5, 0)
+
+TextLabel_4.Size = UDim2.new(1, -20, 1, -20)
+
+TextLabel_4.ZIndex = 2
+
+TextLabel_4.Font = Enum.Font.GothamSemibold
+
+TextLabel_4.Text = "GreatDummy"
+
+TextLabel_4.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+TextLabel_4.TextScaled = true
+
+TextLabel_4.TextSize = 14.000
+
+TextLabel_4.TextWrapped = true
+
+Button_5.Name = "Button"
+
+Button_5.Parent = Gradient
+
+Button_5.BackgroundColor3 = Color3.fromRGB(48, 48, 48)
+
+Button_5.BorderSizePixel = 0
+
+Button_5.Position = UDim2.new(0.677777767, 0, 0.185000017, 0)
+
+Button_5.Size = UDim2.new(0, 98, 0, 35)
+
+Button_5.ZIndex = 2
+
+Button_5.Font = Enum.Font.GothamSemibold
+
+Button_5.Text = ""
+
+Button_5.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+Button_5.TextScaled = true
+
+Button_5.TextSize = 14.000
+
+Button_5.TextWrapped = true
+
+Button_5.MouseButton1Down:connect(function()
+
+    _G.aura = true
+
+spawn(function()
+
+    while _G.aura == true do
+
+        local a = "Model"
+
+for i,v in pairs(game:GetService("Workspace")[a].Red:GetChildren()) do
+
+    if v.ClassName == "ClickDetector" then
+
+        fireclickdetector(v)
+
+    end
+
+end
+
+wait()
+
+end
+
+end)
+
+end)
+
+    
+
+Shadow_5.Name = "Shadow"
+
+Shadow_5.Parent = Button_5
+
+Shadow_5.BackgroundColor3 = Color3.fromRGB(22, 22, 22)
+
+Shadow_5.BorderSizePixel = 0
+
+Shadow_5.Size = UDim2.new(1, 0, 1, 4)
+
+TextLabel_5.Parent = Button_5
+
+TextLabel_5.AnchorPoint = Vector2.new(0.5, 0.5)
+
+TextLabel_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+
+TextLabel_5.BackgroundTransparency = 1.000
+
+TextLabel_5.BorderColor3 = Color3.fromRGB(27, 42, 53)
+
+TextLabel_5.BorderSizePixel = 0
+
+TextLabel_5.Position = UDim2.new(0.5, 0, 0.5, 0)
+
+TextLabel_5.Size = UDim2.new(1, -20, 1, -20)
+
+TextLabel_5.ZIndex = 2
+
+TextLabel_5.Font = Enum.Font.GothamSemibold
+
+TextLabel_5.Text = "auto get burner"
+
+TextLabel_5.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+TextLabel_5.TextScaled = true
+
+TextLabel_5.TextSize = 14.000
+
+TextLabel_5.TextWrapped = true
+
+Button_6.Name = "Button"
+
+Button_6.Parent = Gradient
+
+Button_6.BackgroundColor3 = Color3.fromRGB(48, 48, 48)
+
+Button_6.BorderSizePixel = 0
+
+Button_6.Position = UDim2.new(0.677777767, 0, 0.430000007, 0)
+
+Button_6.Size = UDim2.new(0, 98, 0, 35)
+
+Button_6.ZIndex = 2
+
+Button_6.Font = Enum.Font.GothamSemibold
+
+Button_6.Text = ""
+
+Button_6.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+Button_6.TextScaled = true
+
+Button_6.TextSize = 14.000
+
+Button_6.TextWrapped = true
+
+Button_6.MouseButton1Down:connect(function()
+
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-16.9916439, -2.50000072, 2492.57544, -0.950533211, 3.83324412e-08, -0.310622931, 2.30766517e-08, 1, 5.278849e-08, 0.310622931, 4.30090772e-08, -0.950533211)
+
+end)
+
+Shadow_6.Name = "Shadow"
+
+Shadow_6.Parent = Button_6
+
+Shadow_6.BackgroundColor3 = Color3.fromRGB(22, 22, 22)
+
+Shadow_6.BorderSizePixel = 0
+
+Shadow_6.Size = UDim2.new(1, 0, 1, 4)
+
+TextLabel_6.Parent = Button_6
+
+TextLabel_6.AnchorPoint = Vector2.new(0.5, 0.5)
+
+TextLabel_6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+
+TextLabel_6.BackgroundTransparency = 1.000
+
+TextLabel_6.BorderColor3 = Color3.fromRGB(27, 42, 53)
+
+TextLabel_6.BorderSizePixel = 0
+
+TextLabel_6.Position = UDim2.new(0.5, 0, 0.5, 0)
+
+TextLabel_6.Size = UDim2.new(1, -20, 1, -20)
+
+TextLabel_6.ZIndex = 2
+
+TextLabel_6.Font = Enum.Font.GothamSemibold
+
+TextLabel_6.Text = "proggres fifth"
+
+TextLabel_6.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+TextLabel_6.TextScaled = true
+
+TextLabel_6.TextSize = 14.000
+
+TextLabel_6.TextWrapped = true
+
+Button_7.Name = "Button"
+
+Button_7.Parent = Gradient
+
+Button_7.BackgroundColor3 = Color3.fromRGB(48, 48, 48)
+
+Button_7.BorderSizePixel = 0
+
+Button_7.Position = UDim2.new(0.677777767, 0, 0.670000017, 0)
+
+Button_7.Size = UDim2.new(0, 98, 0, 35)
+
+Button_7.ZIndex = 2
+
+Button_7.Font = Enum.Font.GothamSemibold
+
+Button_7.Text = ""
+
+Button_7.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+Button_7.TextScaled = true
+
+Button_7.TextSize = 14.000
+
+Button_7.TextWrapped = true
+
+Button_7.MouseButton1Down:connect(function()
+
+    _G.autor = true
+
+spawn(function()
+
+    while _G.autor == true do
+
+                    for i,v in pairs(game:GetService("Workspace").Red:GetChildren()) do
+
+    if v.ClassName == "ClickDetector" then
+
+        fireclickdetector(v)
+
+    end
+
+end
+
+wait()
+
+end
+
+end)
+
+end)
+
+Shadow_7.Name = "Shadow"
+
+Shadow_7.Parent = Button_7
+
+Shadow_7.BackgroundColor3 = Color3.fromRGB(22, 22, 22)
+
+Shadow_7.BorderSizePixel = 0
+
+Shadow_7.Size = UDim2.new(1, 0, 1, 4)
+
+TextLabel_7.Parent = Button_7
+
+TextLabel_7.AnchorPoint = Vector2.new(0.5, 0.5)
+
+TextLabel_7.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+
+TextLabel_7.BackgroundTransparency = 1.000
+
+TextLabel_7.BorderColor3 = Color3.fromRGB(27, 42, 53)
+
+TextLabel_7.BorderSizePixel = 0
+
+TextLabel_7.Position = UDim2.new(0.5, 0, 0.5, 0)
+
+TextLabel_7.Size = UDim2.new(1, -20, 1, -20)
+
+TextLabel_7.ZIndex = 2
+
+TextLabel_7.Font = Enum.Font.GothamSemibold
+
+TextLabel_7.Text = "auto bridge (op)"
+
+TextLabel_7.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+TextLabel_7.TextScaled = true
+
+TextLabel_7.TextSize = 14.000
+
+TextLabel_7.TextWrapped = true
+
+Button_8.Name = "Button"
+
+Button_8.Parent = Gradient
+
+Button_8.BackgroundColor3 = Color3.fromRGB(48, 48, 48)
+
+Button_8.BorderSizePixel = 0
+
+Button_8.Position = UDim2.new(0.36388889, 0, 0.670000017, 0)
+
+Button_8.Size = UDim2.new(0, 98, 0, 35)
+
+Button_8.ZIndex = 2
+
+Button_8.Font = Enum.Font.GothamSemibold
+
+Button_8.Text = ""
+
+Button_8.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+Button_8.TextScaled = true
+
+Button_8.TextSize = 14.000
+
+Button_8.TextWrapped = true
+
+Button_8.MouseButton1Down:connect(function()
+
+    _G.autor = false
+
+spawn(function()
+
+    while _G.autor == true do
+
+                    for i,v in pairs(game:GetService("Workspace").Red:GetChildren()) do
+
+    if v.ClassName == "ClickDetector" then
+
+        fireclickdetector(v)
+
+    end
+
+end
+
+wait()
+
+end
+
+end)
+
+end)
+
+Shadow_8.Name = "Shadow"
+
+Shadow_8.Parent = Button_8
+
+Shadow_8.BackgroundColor3 = Color3.fromRGB(22, 22, 22)
+
+Shadow_8.BorderSizePixel = 0
+
+Shadow_8.Size = UDim2.new(1, 0, 1, 4)
+
+TextLabel_8.Parent = Button_8
+
+TextLabel_8.AnchorPoint = Vector2.new(0.5, 0.5)
+
+TextLabel_8.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+
+TextLabel_8.BackgroundTransparency = 1.000
+
+TextLabel_8.BorderColor3 = Color3.fromRGB(27, 42, 53)
+
+TextLabel_8.BorderSizePixel = 0
+
+TextLabel_8.Position = UDim2.new(0.5, 0, 0.5, 0)
+
+TextLabel_8.Size = UDim2.new(1, -20, 1, -20)
+
+TextLabel_8.ZIndex = 2
+
+TextLabel_8.Font = Enum.Font.GothamSemibold
+
+TextLabel_8.Text = "stop auto bridge"
+
+TextLabel_8.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+TextLabel_8.TextScaled = true
+
+TextLabel_8.TextSize = 14.000
+
+TextLabel_8.TextWrapped = true
+
+Button_9.Name = "Button"
+
+Button_9.Parent = Gradient
+
+Button_9.BackgroundColor3 = Color3.fromRGB(48, 48, 48)
+
+Button_9.BorderSizePixel = 0
+
+Button_9.Position = UDim2.new(0.0444444455, 0, 0.670000017, 0)
+
+Button_9.Size = UDim2.new(0, 98, 0, 35)
+
+Button_9.ZIndex = 2
+
+Button_9.Font = Enum.Font.GothamSemibold
+
+Button_9.Text = ""
+
+Button_9.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+Button_9.TextScaled = true
+
+Button_9.TextSize = 14.000
+
+Button_9.TextWrapped = true
+
+Button_9.MouseButton1Down:connect(function()
+
+    _G.aura = false
+
+spawn(function()
+
+    while _G.aura == true do
+
+        local a = "Model"
+
+for i,v in pairs(game:GetService("Workspace")[a].Red:GetChildren()) do
+
+    if v.ClassName == "ClickDetector" then
+
+        fireclickdetector(v)
+
+    end
+
+end
+
+wait()
+
+end
+
+end)
+
+end)
+
+Shadow_9.Name = "Shadow"
+
+Shadow_9.Parent = Button_9
+
+Shadow_9.BackgroundColor3 = Color3.fromRGB(22, 22, 22)
+
+Shadow_9.BorderSizePixel = 0
+
+Shadow_9.Size = UDim2.new(1, 0, 1, 4)
+
+TextLabel_9.Parent = Button_9
+
+TextLabel_9.AnchorPoint = Vector2.new(0.5, 0.5)
+
+TextLabel_9.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+
+TextLabel_9.BackgroundTransparency = 1.000
+
+TextLabel_9.BorderColor3 = Color3.fromRGB(27, 42, 53)
+
+TextLabel_9.BorderSizePixel = 0
+
+TextLabel_9.Position = UDim2.new(0.5, 0, 0.5, 0)
+
+TextLabel_9.Size = UDim2.new(1, -20, 1, -20)
+
+TextLabel_9.ZIndex = 2
+
+TextLabel_9.Font = Enum.Font.GothamSemibold
+
+TextLabel_9.Text = "stop auto burner"
+
+TextLabel_9.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+TextLabel_9.TextScaled = true
+
+TextLabel_9.TextSize = 14.000
+
+TextLabel_9.TextWrapped = true
+
+TextLabel_10.Parent = Gradient
+
+TextLabel_10.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+
+TextLabel_10.BackgroundTransparency = 1.000
+
+TextLabel_10.Position = UDim2.new(0, 0, 0.0299999993, 0)
+
+TextLabel_10.Size = UDim2.new(0, 342, 0, 23)
+
+TextLabel_10.Font = Enum.Font.GothamSemibold
+
+TextLabel_10.Text = "cube fusion gui"
+
+TextLabel_10.TextColor3 = Color3.fromRGB(0, 0, 0)
+
+TextLabel_10.TextSize = 14.000
+
+game.StarterGui:SetCore("SendNotification", {
+
+    Title = "loaded";
+
+    Text = "real dummy#6666";
+
+    Duration = "10";
+
+    Button1 = "Ok";
+
+    Button2 = "ok";
+
+    Icon = "rbxassetid://7635712200";
+
+    Callback = Bindable
+
+})
+
+function Callback(answer)
+
+ if answer == "Ok" then
+
+        warn("ok")
+
+    elseif answer == "no" then
+
+    print("ok")
+
+end
+
+end
