@@ -1,0 +1,43 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local TextLabel = Instance.new("TextLabel")
+local TextLabel_2 = Instance.new("TextLabel")
+local TextButton = Instance.new("TextButton")
+local TextButton_2 = Instance.new("TextButton")
+local TextButton_3 = Instance.new("TextButton")
+local TextButton_4 = Instance.new("TextButton")
+local TextButton_5 = Instance.new("TextButton")
+local TextButton_6 = Instance.new("TextButton")
+local TextButton_7 = Instance.new("TextButton")
+local TextButton_8 = Instance.new("TextButton")
+local TextButton_9 = Instance.new("TextButton")
+local TextButton_10 = Instance.new("TextButton")
+local TextButton_11 = Instance.new("TextButton")
+local TextButton_12 = Instance.new("TextButton")
+
+--Properties:
+
+ScreenGui.Parent = game.CoreGui
+ScreenGui.ResetOnSpawn = false
+
+Frame.Parent = ScreenGui
+Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 255)
+Frame.Position = UDim2.new(0.627391756, 0, 0.443458974, 0)
+Frame.Size = UDim2.new(0, 359, 0, 244)
+Frame.Draggable = true
+Frame.Active = true
+
+TextLabel.Parent = Frame
+TextLabel.BackgroundColor3 = Color3.fromRGB(0, 85, 255)
+TextLabel.Size = UDim2.new(0, 359, 0, 47)
+TextLabel.Font = Enum.Font.PermanentMarker
+TextLabel.Text = "commands= re, speed and jump (for now)"
+TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+
+
+TextLabel.TextSize = 37.000
