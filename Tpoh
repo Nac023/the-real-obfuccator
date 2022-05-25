@@ -1,0 +1,11 @@
+game:GetService("Players").LocalPlayer.Chatted:Connect(function(Message)
+
+    if Message:find("speed") then
+
+        local chosen = string.gsub(Message, "speed", "")
+
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = (chosen)
+
+    end
+
+end)
